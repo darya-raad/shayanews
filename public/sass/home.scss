@@ -1,0 +1,2222 @@
+@import "variable";
+@import "global";
+@import "mixin";
+@import "../../node_modules/susy/sass/susy";
+
+$susy: (
+  columns: $columns,
+  global-box-sizing: border-box,
+  gutters: 0,
+  flow: rtl,
+  math:fluid
+);
+
+// header
+// top_header
+.main_header {
+  margin-bottom: 37px;
+  .top_header {
+    background-color: $darkblue;
+  }
+  .top_header_inner {
+    @include susy-breakpoint (450px) {
+      @include container();
+    }
+    .date {
+      text-align: center;
+      @include susy-breakpoint (450px) {
+        @include span(5);
+        padding-left: $pad4;
+        text-align: right;
+      }
+      time {
+        color: $white;
+        font-size: $font7;
+        padding-left: $pad4;
+      }
+      & time:last-child {
+        padding-left: 0;
+        padding-right: $pad4;
+      }
+    }
+    .menu {
+      text-align: center;
+      @include susy-breakpoint (450px) {
+        @include span(5 last);
+        padding-right: $pad4;
+        text-align: left;
+      }
+      li {
+        display: inline-block;
+        a {
+          color: $white;
+          font-size: $font7;
+          padding: 0 $pad4;
+          @include borders(left,1px, solid, $white);
+        }
+      }  
+      & li:last-child {
+        a {
+          border-left: none;
+        }
+      }
+    }
+    .line {
+      color: $white;
+    }
+  }
+  // bottom_header
+  .bottom_header {
+    background-color: $orange;
+  }
+   .bottom_header_inner {
+      position: relative;
+      padding-bottom: 1px;
+      @include susy-breakpoint (900px) {
+        @include container();
+      }
+      .logo_menu {
+        @include container();
+        @include susy-breakpoint (900px) {
+          @include span (6.5);
+          margin-bottom: 0;
+        }
+        .logo {
+          float: right;
+          padding-left: $pad4;
+        }
+        .nav_menu {
+          padding-right: $pad4;
+          text-align: left;
+          @include susy-breakpoint (560px) {
+            padding-right: 93px;
+          }
+          @include susy-breakpoint (900px) {
+            padding-right: 100px;
+          }
+          > a {
+            @include susy-breakpoint (560px) {
+              display: none;
+            }
+          }
+          .main_menu {
+            z-index: 1;
+            background-color: $darkblue;
+            display: none;
+            text-align: center;
+            position: absolute;
+            width: 100%;
+            right: 0;
+            top: 59px;
+            @include susy-breakpoint (560px) {
+              display: block;
+              right: unset;
+              top: unset;
+              width: unset;
+              position: unset;
+              text-align: right;
+              background-color: $orange;
+            }
+            @include susy-breakpoint (900px) {
+               text-align: right;
+               margin-top: 0;
+            }
+            li {
+              display: block;
+              padding: $pad8 0;
+              @include borders(bottom,1px, solid, $white);
+              transition: 0.5s;
+              @include susy-breakpoint (560px) {
+                display: inline-block;
+                border-bottom: none;
+                padding: $pad4 0 0 $pad14;
+              }
+              a {
+                color: $white;
+                font-size: 14px;
+              }
+            }
+            & li:last-child {
+              border-bottom: none;
+            }
+            li:hover {
+              background-color: $lightgray;
+              @include susy-breakpoint (560px) {
+                background-color: $orange;
+              }
+            }
+            .active {
+              a {
+                @include susy-breakpoint (560px) {
+                  @include borders(bottom,2px, solid, $white);
+                  padding-bottom: $pad8;
+                }
+              }
+            }
+          }
+        }
+      }
+      .trend {
+        text-align: center;
+        @include susy-breakpoint (900px) {
+          @include span (3.5 last);
+          text-align: left;
+          margin-top: $mar8;
+        }
+        span {
+          color: $black;
+          font-size: 13px;
+          font-family: $myBoldFont;
+        }
+      }
+    }
+  .fixed {
+    position: fixed;
+    top: 0;
+    z-index: 1;
+    width: 100%;
+  }
+}
+
+// main
+// level_one
+.level_one {
+  margin-bottom: $mar28;
+  @include susy-breakpoint (900px) {
+    @include container();
+  }
+  .right_part {
+    @include susy-breakpoint (780px) {
+      @include container();
+    }
+    @include susy-breakpoint (900px) {
+      @include span(5.7);
+      margin-bottom: 0;
+      padding-left: $pad8;
+    }
+    .col_right_middle {
+      margin-bottom: $mar14;
+      @include susy-breakpoint (600px) {
+        @include container();
+      }
+    }
+    .col_right {
+      padding: 1px $pad14;
+      margin-bottom: $mar21;
+      @include susy-breakpoint (600px) {
+        @include span(3);
+        margin-top: $mar14;
+      }
+      @extend .shadow_box;
+      h4 {
+        background-color: $darkblue;
+      }
+      ul {
+        margin: $mar25 0;
+        @include susy-breakpoint (900px) {
+          width: 100%;
+          height: 615px;
+          overflow: scroll;
+        }
+        & li:first-child {
+          padding-top: 0;
+          .title {
+            font-size: $font9;
+            padding: $pad8;
+            font-family: $myBoldFont;
+            a {
+              color: $lightBlack;
+            }
+          }
+          @include borders(right,1px,solid, $gray);
+          @include borders(left,1px,solid, $gray);
+          @include borders(top,1px,solid, $gray);
+          @include borders(bottom,1px,solid, $gray);
+        }
+        li{
+          @include borders(bottom,2px,dotted, $gray);
+          position: relative;
+          padding: $pad14 0;
+          svg {
+            position: absolute;
+            top: 23px;
+          }
+          h3 {
+            font-size: $font8;
+            font-family: $myBoldFont;
+            padding-right: 18px;
+            a {
+              @extend .overflow_text;
+              display: inline-block;
+              color: $lightBlack;
+            }
+          }
+        }
+        & li:last-child {
+          border-bottom: none;
+          padding-bottom: 0;
+        }
+      }
+    }
+    .col_middle {
+      margin-bottom: $mar25;
+      @include susy-breakpoint (600px) {
+        @include span(7 last);
+        margin-bottom: 0;
+        padding:0 $pad14 0 0;
+      }
+      .top_news {
+        padding: 19px $pad14;
+        margin-bottom: $mar14;
+        @extend .shadow_box;
+        .up_title {
+          color: $normalgray;
+          font-size: $font8;
+          margin-bottom: $mar8;
+        }
+        .title {
+          margin-bottom: 37px;
+          a {
+            color: $orange;
+          }
+        }
+      }
+      .second_news {
+        @extend .shadow_box;
+        padding: 19px $pad14;
+        ul {
+          @include susy-breakpoint (480px) {
+            @include container(0);
+          }
+        }
+        li {
+          @include borders(bottom,2px,dotted, $gray);
+          position: relative;
+          margin-top: $mar14;
+          svg {
+            position: absolute;
+            margin-top: $mar14;
+            @include susy-breakpoint (480px) {
+              margin-top: $mar8;
+            }
+          }
+          h3 {
+            padding-right: 22px;
+            a {
+              display: inline-block;
+              font-size: $font7;
+              color: $lightBlack;
+              margin-bottom: $mar14;
+            }
+          }
+        }
+        & li:first-child {
+          margin-top: 0;
+        }
+        & li:last-child {
+          border-bottom: none;
+          a {
+            margin-bottom: 0;
+          }
+        }
+        & li:nth-child(2) {
+          @include susy-breakpoint (480px) {
+            margin-top: 0;
+          }
+        }
+        & li:nth-child(3) ,
+        li:nth-child(4){
+          @include susy-breakpoint (480px) {
+            border-bottom: none;
+          }
+        }
+        .susygallery {
+          @include susy-breakpoint (480px) {
+            @include gallery(1 of 2 1/8); 
+          }
+        }
+      }
+    }
+  }
+  .left_part {
+    padding-top: $pad4;
+    @include container();
+    @include susy-breakpoint (900px) {
+      @include span(4.3 last);
+      padding-right: $pad8;
+    }
+    .col_left {
+      box-shadow:	0 0 7px 0 #00000042;
+      margin-bottom: $mar14;
+      @include susy-breakpoint (560px) {
+        @include span(5);
+        margin-top: $mar14;
+        margin-bottom: 0;
+      }
+      .same_header {
+        padding-right: 19px; 
+        padding-top: $pad14;
+        h4 {
+          background-color: $orange;
+          top: -12px;
+        }
+      }
+      ul {
+        @include susy-breakpoint (900px) {
+          width: 100%;
+          height: 647px;
+          overflow: scroll;
+        }
+        margin-top: $mar8;
+        li {
+          padding: 20px 0;
+          @include container();
+          @include borders(bottom,2px,dotted, $gray);
+          .image {
+            @include span(4);
+            padding-right: 19px;
+            img {
+              border-radius: 5px;
+            }
+          }
+          .cnt {
+            @include span(6 last);
+            padding-right: $pad4;
+            padding-left: 19px;
+            a {
+              @extend .overflow_text;
+              font-size: $font8;
+              color: $lightBlack;
+            }
+          }
+        }
+        & li:first-child {
+          padding-top: $pad14;
+        }
+        & li:last-child {
+          border-bottom: none;
+        }
+      }
+    }
+    .adv {
+      @include susy-breakpoint (560px) {
+        @include span(5 last);
+        padding-right: $pad14;
+      }
+      .first_ad ,
+      .second_ad , 
+      .third_ad {
+        margin-bottom: $mar14;
+      }
+    }
+  }
+}
+
+// popular
+.popular {
+  margin-bottom: $mar25;
+  @include susy-breakpoint (780px) {
+    @include container();
+  }
+  .right_popular {
+    @include susy-breakpoint (780px) {
+      @include span(4);
+      margin-bottom: 0;
+      padding-left: $pad8;
+    }
+    .right_popular_inner {
+      margin-bottom: $mar25;
+      @extend .shadow_box;
+      padding: 1px $pad14 0;
+      h4 {
+        background-color: $orange;
+      }
+      ul {
+        margin-top: $mar14;
+        @include susy-breakpoint (560px) {
+          @include container();
+        }
+        li {
+          @include susy-breakpoint (560px) {
+            @include span(5);
+          }
+          .title {
+            font-size: 0.9em;
+            @include borders(bottom,3px,dotted, $gray);
+            padding: 18px 0 22px 0;
+            min-height: 50px;
+            .number {
+              background-color: $darkblue;
+            }
+            a {
+              color: #2d2832;
+              @extend .overflow_text;
+            }
+          }
+        }
+        & li:last-child .title {
+          border-bottom: none;
+        }
+        & li:nth-child(9) .title{
+          @include susy-breakpoint (560px) {
+            border-bottom: none;
+          }
+        }
+        & li:nth-child(odd) {
+          @include susy-breakpoint (560px) {
+            padding-left: 24px;
+          }
+        }
+      }
+    }
+  }
+
+  .left_popular {
+    @include susy-breakpoint (780px) {
+      @include span(6);
+      padding-right: $pad8;
+    }
+    .left_popular_inner {
+      padding: 1px $pad14;
+      @extend .shadow_box;
+      .same_header {
+        margin-bottom: $mar8;
+        h4 {
+          background-color: $orange;
+        }
+      }
+      .content {
+        margin-top: $mar25;
+        @include susy-breakpoint (900px) {
+          @include container();
+        }
+        .col_right {
+          @include susy-breakpoint (900px) {
+            @include span(2.6);
+            padding-left: $pad14;
+          }
+          li > a {
+            margin-bottom: $mar8;
+          }
+          & li:first-child {
+            margin-bottom: $mar21;
+          }
+          & li:last-child {
+            @include susy-breakpoint (560px) {
+              margin-bottom: $mar21;
+            }
+          }
+          .title {
+            font-size: $font9;
+            font-family: $myBoldFont;
+            a{
+              color: $darkblue;
+              @extend .overflow_text;
+            }
+          }
+        }
+        .col_left {
+          @include susy-breakpoint (560px) {
+            @include container();
+          }
+          @include susy-breakpoint (900px) {
+            @include span(7.4 last);
+          }
+          li {
+            @include susy-breakpoint (560px) {
+              @include span(5);
+            }
+            .title {
+              font-size: 0.9em;
+              @include borders(bottom,3px,dotted, $gray);
+              padding: 18px 0 22px 0;
+              min-height: 93px;
+              .number {
+                background-color: $orange;
+              }
+              a {
+                color: #2d2832;
+                @extend .overflow_text;
+              }
+            }
+          }
+          & li:nth-child(1) .title,
+          & li:nth-child(2) .title {
+            @include susy-breakpoint (900px) {
+              padding-top: 0;
+            }
+          }
+          & li:last-child .title {
+            border-bottom: none;
+          }
+          & li:nth-child(9) .title{
+            @include susy-breakpoint (560px) {
+              border-bottom: none;
+            }
+          }
+          & li:nth-child(odd) {
+            @include susy-breakpoint (560px) {
+              padding-left: $pad14;
+            }
+          }
+          & li:nth-child(even) {
+            @include susy-breakpoint (560px) {
+              padding-right: $pad14;
+            }
+          }
+        }
+      }
+    }
+  }
+  }
+
+// market
+.market {
+  margin-bottom: $mar25;
+  @include susy-breakpoint (900px) {
+    @include container();
+  }
+  .right_market {
+    @extend .shadow_box;
+    padding: 1px $pad14;
+    margin-bottom: $mar25;
+    @include susy-breakpoint (900px) {
+      @include span(7);
+      margin-bottom: 0;
+      padding-left: $pad8;
+    }
+    .same_header {
+      margin-bottom: $mar8;
+      h4 {
+        background-color: $darkblue;
+      }
+    }
+    .detail {
+      margin: $mar25 0;
+      @include susy-breakpoint (600px) {
+        @include container();
+      }
+      .col_right {
+        margin-bottom: $mar14;
+        @include susy-breakpoint (600px) {
+          @include span(4);
+          margin-bottom: 0;
+          padding-left: $pad8;
+        }
+        li {
+          border-radius: 0 5px 5px 0;
+          background-color: $lightgraysecond;
+          margin-bottom: $mar21;
+          @include container();
+          .image {
+            @include span(3.4);
+            img{
+              border-radius: 5px;
+            }
+          }
+          .content {
+            @include span(6.6 last);
+            .title {
+              font-size: $font9;
+              padding: $pad8;
+              a {
+                transition: 0.8s;
+                color: $darkblue;
+                @extend .overflow_text;
+              }
+            }
+          }
+        }
+        & li:first-child {
+          background-color: $white;
+          @include susy-breakpoint (600px) {
+            margin-bottom: 110px;
+          }
+          .res {
+            margin-bottom: $mar21;
+          }
+          .up_title {
+            color: $normalgray;
+            font-size: $font8;
+            font-family: $myBoldFont;
+            margin-bottom: $mar21;
+          }
+          .title {
+            font-size: $font10;
+            font-family: $myBoldFont;
+            a {
+              transition: 0.8s;
+              color: $orange;
+            }
+          }
+        }
+        li:first-child:hover {
+          .title {
+            a {
+              color: $darkblue;
+            }
+          }
+        }
+        li:hover {
+          .title {
+            a {
+              color: $orange;
+            }
+          }
+        }
+      }
+      .col_left {
+        @include susy-breakpoint(600px){
+          @include span(6 last);
+          padding-right: $pad8;
+        }
+        .first {
+          margin: $mar14 0;
+          @include container();
+          @include susy-breakpoint (600px) {
+            margin-top: 0;
+          }
+          li {
+            @include susy-breakpoint (460px) {
+              @include span(5);
+            }
+            .content {
+              background-color: $lightgraysecond;
+              padding: $pad8;
+              .up_title {
+                color: $normalgray;
+                font-size: $font7;
+                margin-bottom: $mar8;
+              }
+              .title {
+                font-size: $font10;
+                a {
+                  color: $darkblue;
+                  transition: 0.8s;
+                }
+              }
+            }
+          }
+          & li:nth-child(odd) {
+            @include susy-breakpoint (460px) {
+              padding-left: $pad8;
+            }
+          }
+          & li:nth-child(even) {
+            @include susy-breakpoint (460px) {
+              padding-right: $pad8;
+            }
+          }
+          & li:nth-child(2) ,
+          li:nth-child(3) ,
+          li:nth-child(4) {
+            margin-top: $mar14;
+          }
+          & li:nth-child(2) {
+            @include susy-breakpoint(460px) {
+              margin-top: 0;
+            }
+          }
+          li:hover {
+            .title {
+              a {
+                color: $orange;
+              }
+            }
+          }
+        }
+        .adv {
+          img {
+            @include borders(top,1px, solid, $gray2);
+            @include borders(right,1px, solid, $gray2);
+            @include borders(bottom,1px, solid, $gray2);
+            @include borders(left,1px, solid, $gray2);
+          }
+        }
+      }
+    }
+    footer {
+      @extend .archive;
+    }
+  }
+
+  .left_market {
+    @include susy-breakpoint (480px) {
+      @include container();
+    }
+    @include susy-breakpoint (900px) {
+      @include span(3 last);
+      padding-right: $pad14;
+    }
+    .col_right {
+      @include susy-breakpoint (480px 899px) {
+        @include span(5);
+        margin-bottom: 0;
+        padding-left: $pad8;
+      }
+      @include susy-breakpoint (900px) {
+        margin-bottom: $mar25;
+      }
+      .col_right_inner {
+        @extend .shadow_box;
+        padding: 1px $pad14;
+        margin-bottom: $mar25;
+        @include susy-breakpoint (480px) {
+          margin-bottom: 0;
+        }
+        h4 {
+          background-color: $orange;
+        }
+        .content {
+          margin-top: $mar25;
+        }
+      }
+    }
+    
+    .col_left {
+      @include susy-breakpoint (480px 899px) {
+        @include span(5 last);
+        padding-right: $pad8;
+      }
+      .col_left_inner {
+        @extend .shadow_box;
+        padding: 1px $pad14;
+        h4 {
+          background-color: $orange;
+        }
+        .content {
+          margin-top: $mar25;
+        }
+      }
+    }
+  }
+}
+
+// title_news
+.title_news {
+  margin-bottom: $mar25;
+  @include susy-breakpoint (780px) {
+    @include container();
+  }
+  .col_right {
+    margin-bottom: $mar25;
+    @include susy-breakpoint (900px) {
+      @include span(6);
+      margin-bottom: 0;
+      padding-left: $pad8;
+    }
+    .tab_news { 
+      position: relative;
+      @extend .shadow_box;
+      padding: 0 $pad14;
+      margin-bottom: $mar28;
+      .tabs {
+        position: absolute;
+        top: -15px;
+        li {
+          padding: 2px $pad8 $pad4 $pad8;
+          border-radius: 4px;
+          background-color: $darkblue;
+          text-align: center;
+          display: inline-block;
+          @include susy-breakpoint (460px) {
+            padding: 0 $pad14 2px $pad14;
+          }
+          h4 {
+            font-size: $font7;
+            @include susy-breakpoint (460px) {
+              font-size: $font9;
+            }
+            a {
+              color: $white;
+            }
+          }
+        }
+        .active {
+          background-color: $orange;
+        }
+      }
+      .tab_content {
+        padding-top: $pad4;
+        @include container();
+        li {
+          position: relative;
+          margin-top: $mar14;
+          @include susy-breakpoint (600px) {
+            @include span (5);
+          }
+          @include susy-breakpoint (780px 990px) {
+            min-height: 70px;
+          }
+          svg {
+            position: absolute;
+            top: 7px;
+          }
+          h3 {
+            @include borders(bottom,3px,dotted, $gray);
+            padding-right: 22px;
+            @include susy-breakpoint (600px) {
+              min-height: 70px;
+            }
+            a {
+              @extend .overflow_text;
+              transition: 0.5s;
+              display: inline-block;
+              font-size: 0.68em;
+              color: $lightBlack;
+              margin-bottom: $mar14;
+              @include susy-breakpoint (600px) {
+                margin-bottom: 0;
+              }
+            }
+          }
+        }
+        li:hover {
+          a {
+            color: $orange;
+          }
+        }
+        & li:last-child {
+          h3 {
+            border: none;
+          }
+        }
+        & li:nth-child(9) {
+          h3 {
+            @include susy-breakpoint (600px) {
+              border: none;
+            }
+          }
+        }
+        & li:nth-child(odd) {
+          @include susy-breakpoint (600px) {
+            padding-left: 20px;
+          }
+        }
+        & li:nth-child(even) {
+          @include susy-breakpoint (600px) {
+            padding-right: 20px;
+          }
+        }
+      }
+    }
+  
+    .events {
+      padding: 0 $pad14;
+      @include borders(bottom,2px,solid, $red);
+      @include borders(top,2px,solid, $red);
+      @include borders(left,2px,solid, $red);
+      @include borders(right,2px,solid, $red);
+      .same_header {
+        h4 {
+          background-color: $red;
+        }
+      }
+      .image_events {
+        margin-top: $mar25;
+        li {
+          position: relative;
+          margin-bottom: $mar14;
+          @include susy-breakpoint (600px) {
+            margin-bottom: 0; 
+          }
+          .caption {
+            width: 100%;
+            position: absolute;
+            bottom: 0;
+            padding: $pad8;
+            background-color: #00000080;
+            h4 {
+              font-size: $font8;
+              a {
+                color: $white;
+              }
+            }
+          }
+        }
+        .image_caption {
+          @include susy-breakpoint (600px) {
+            @include gallery(1 of 3 1/12); 
+          }
+        }
+      }
+
+      footer {
+        @extend .archive;
+        a {
+          padding-left: $pad8;
+        }
+      }
+    }
+  }
+
+  .col_middle_left {
+    @include susy-breakpoint (900px) {
+      @include span(4 last);
+      padding-right: $pad8;
+    }
+    @include susy-breakpoint (480px) {
+      @include container();
+    }
+    .col_middle { 
+      margin-bottom: $mar14;
+      @include susy-breakpoint (480px) {
+        @include span(7);
+        margin-bottom: 0;
+        padding-left: $pad14;
+      }
+      .social_media_news {
+        @extend .shadow_box;
+        padding: 1px $pad14;
+        .same_header {
+          h4 {
+            background-color: $darkblue;
+          }
+        } 
+        .top_content {
+          margin: $mar25 0;
+          @include borders(left,1px, solid, $gray3);
+          @include borders(right,1px, solid, $gray3);
+          @include borders(top,1px, solid, $gray3);
+          @include borders(bottom,1px, solid, $gray3);
+          .title {
+            font-size: $font10;
+            margin-bottom: $mar21;
+            padding: $pad8;
+            a{
+              @extend .overflow_text;
+              transition: 0.5s;
+              color: $black;
+            }
+          }
+        }
+        .top_content:hover {
+          .title {
+            a {
+              color: $orange;
+            }
+          }
+        }
+        li {
+          padding: 0;
+          @include container();
+          margin-bottom: $mar25;
+          > a {
+            @include span(3.5);
+            img {
+              border-radius: 5px;
+            }
+          }
+          .title {
+            @include span (6.5 last);
+            font-size: $font9;
+            padding-right: $pad8;
+            a{
+              @extend .overflow_text;
+              transition: 0.5s;
+              color: $black;
+            }
+          }
+        }
+        li:hover {
+          .title {
+            a {
+              color: $orange;
+            }
+          }
+        }
+        & li:last-child {
+          margin-bottom: 0;
+        }
+        
+        footer {
+          @extend .archive;
+        }
+      }
+    }
+    .col_left {
+      background-color: #fff2f2;
+      @include borders(left,1px, solid, $gray2);
+      @include borders(right,1px, solid, $gray2);
+      @include borders(top,1px, solid, $gray2);
+      @include borders(bottom,1px, solid, $gray2);
+      @include susy-breakpoint (480px) {
+        @include span(3 last);
+      }
+      .res {
+        margin-top: $mar28;
+        margin-bottom: 491px;
+      }
+    }
+  }
+}
+
+// other_news
+.other_news {
+  @extend .shadow_box ;
+  background-color: #fee36e;
+  margin-bottom: $mar28;
+  padding: 1px $pad14;
+  .same_header {
+    h4 {
+      background-color: $orange;
+    }
+  }
+  ul {
+    margin: $mar25;
+    @include container();
+    li {
+      padding-right: $pad14;
+      @include span(5);
+      margin-bottom: $mar21;
+      @include borders(left,4px, solid, $orange);
+      @extend .overflow_text;
+      min-height: 71px;
+      @include susy-breakpoint (570px) {
+        @include span(3.3);
+      }
+      @include susy-breakpoint (900px) {
+        @include span(2);
+        margin-bottom: 0;
+      }
+      .title {
+        font-size: $font9;
+        a {
+          color: $black;
+        }
+      }
+    }
+    & li:nth-child(odd) {
+      padding-left: $pad14;
+      padding-right: 0;
+    }
+    & li:last-child {
+      margin-bottom: 0;
+      border: none;
+    }
+    & li:nth-child(3) ,
+      li:nth-child(5) {
+      @include susy-breakpoint (570px) {
+        padding-right: $pad14;
+      }
+    }
+    & li:nth-child(4){
+      @include susy-breakpoint (570px) {
+        padding-right: 0;
+        padding-left: $pad14;
+      }
+      @include susy-breakpoint (900px) {
+        padding-right: $pad14;
+      }
+    }
+    & li:nth-child(1) ,
+      li:nth-child(2) ,
+      li:nth-child(4){
+      @include susy-breakpoint (730px) {
+        padding-left: $pad14;
+      }
+    }
+  }
+}
+
+// sport 
+.sport {
+  padding: 1px $pad14;
+  @extend .shadow_box;
+  margin-bottom: $mar28;
+  @include susy-breakpoint (900px) {
+    @include container();
+  }
+  .same_header {
+    h4 {
+      background-color: $darkblue;
+    }
+  }
+  .col_right {
+    margin-top: $mar25;
+    margin-bottom: $mar14;
+    @include susy-breakpoint (900px) {
+      @include span(6);
+      margin-bottom: 0;
+      padding-left: $pad8;
+    }
+    .image_sport {
+      @extend .clear;
+      margin-bottom: $mar14;
+      @include susy-breakpoint (600px) {
+        margin-bottom: 60px;
+      }
+      li {
+        margin-bottom: $mar14;
+        @include borders(left,1px, solid, $gray);
+        @include borders(right,1px, solid, $gray);
+        @include borders(bottom,1px, solid, $gray);
+        @include borders(top,1px, solid, $gray);
+        @include susy-breakpoint (600px) {
+          margin-bottom: 0;
+        }
+        .title {
+          padding: $pad8;
+          font-size: $font9;
+          a {
+            color: $black;
+            @extend .overflow_text;
+          }
+        }
+      }
+      & li:last-child {
+        margin-bottom:0;
+      }
+      .sport_news {
+        @include susy-breakpoint (600px) {
+          @include gallery(1 of 3 1/6); 
+        }
+      }
+    }
+  }
+
+  .col_left {
+    margin-bottom: $mar25;
+    @include borders(left,1px, solid, $gray);
+    @include borders(right,1px, solid, $gray);
+    @include borders(bottom,1px, solid, $gray);
+    @include borders(top,1px, solid, $gray);
+    @include susy-breakpoint (900px) {
+      @include span(4 last);
+      padding-right: $pad8;
+      margin-top: $mar25;
+    }
+    .content {
+      padding: 19px $pad14 0;
+      @include susy-breakpoint (480px) {
+        @include container(0);
+      }
+      li {
+        position: relative;
+        margin-top: $mar14;
+        @include susy-breakpoint (480px) {
+          @include span(5);
+          min-height: 50px;
+        }
+        svg {
+          position: absolute;
+          top: 7px;
+        }
+        .title {
+          @include borders(bottom,3px,dotted, $gray);
+          padding-right: $pad14;
+          min-height: 80px;
+          a {
+            @extend .overflow_text;
+            display: inline-block;
+            font-size: $font7;
+            color: $darkblue;
+            margin-bottom: $mar14;
+          }
+        }
+      }
+      & li:first-child {
+        margin-top: 0;
+      }
+      & li:last-child {
+        .title {
+          border-bottom: none;
+          a {
+            margin-bottom: 0;
+          }
+        }
+      }
+      & li:nth-child(2) {
+        @include susy-breakpoint (480px) {
+          margin-top: 0;
+        }
+      }
+      & li:nth-child(7) {
+        h3 {
+          @include susy-breakpoint (480px) {
+           border: none;
+          }
+        }
+      }
+      & li:nth-child(odd) {
+        padding-left: $pad14;
+      }
+    }
+    footer {
+      @extend .archive;
+      padding: 0 $pad14;
+    }
+  }
+}
+
+// raed
+.raed {
+  margin-bottom: $mar14;
+  @include susy-breakpoint (800px) {
+    @include container();
+    margin-bottom: 60px;
+  }
+  .read_inner {
+    @extend .shadow_box;
+    padding: 1px $pad14;
+    margin-bottom: $mar14;
+    @include susy-breakpoint (800px) {
+      @include span(8);
+      padding-left: $pad8;
+      margin-bottom: 0;
+    }
+    .same_header {
+      margin-bottom: $mar8;
+      h4 {
+        background-color: $darkblue;
+      }
+    }
+    .content {
+      margin-top: $mar25;
+      @include container();
+      .col_right {
+        @include susy-breakpoint (700px) {
+          @include span(3);
+          padding-left: $pad8;
+        }
+        .top_content {
+          margin-bottom: $mar25;
+          @include borders(left,1px, solid, $gray3);
+          @include borders(right,1px, solid, $gray3);
+          @include borders(top,1px, solid, $gray3);
+          @include borders(bottom,1px, solid, $gray3);
+          .title {
+            font-size: $font10;
+            margin-bottom: $mar21;
+            padding: $pad8;
+            a{
+              @extend .overflow_text;
+              transition: 0.5s;
+              color: $black;
+            }
+          }
+        }
+        .top_content:hover {
+          .title {
+            a {
+              color: $orange;
+            }
+          }
+        } 
+        li {
+          padding: 0;
+          @include container();
+          margin-bottom: $mar21;
+          > a {
+            @include span(3.5);
+            img {
+              border-radius: 5px;
+            }
+          }
+          .title {
+            @include span (6.5 last);
+            font-size: $font9;
+            padding-right: $pad8;
+            a{
+              @extend .overflow_text;
+              transition: 0.5s;
+              color: $black;
+            }
+          }
+        }
+        li:hover {
+          .title {
+            a {
+              color: $orange;
+            }
+          }
+        }
+        & li:last-child {
+          margin-bottom: 0;
+        }
+      }
+      .col_left {
+        margin-bottom: $mar14;
+        @include susy-breakpoint (700px) {
+          @include span(7 last);
+          padding: 0 $pad8;
+          margin-bottom: 0;
+        }
+        li {
+          border-radius: 0 5px 5px 0;
+          margin-bottom: $mar21;
+          @include container();
+          .res {
+            margin-bottom: $mar21;
+            @include susy-breakpoint (600px) {
+              @include span (6.8);
+              padding-left: $pad14;
+              margin-bottom: 0;
+            }
+          }
+          .detail {
+            @include susy-breakpoint (600px) {
+              @include span (3.2);
+            }
+            .up_title {
+              color: $normalgray;
+              font-size: $font7;
+              font-family: $myBoldFont;
+              margin-bottom: $mar21;
+            }
+            .title {
+              font-size: $font10;
+              margin-bottom: $mar8;
+              a {
+                color: $darkblue;
+                transition: 0.8s;
+                @extend .overflow_text;
+              }
+            }
+            .lead {
+              font-size: $font8;
+              @extend .overflow_text;
+            }
+          }
+        }
+        li:hover {
+          .title {
+            a {
+              color: $orange;
+            }
+          }
+        }
+        & li:nth-child(2) {
+          margin-bottom: 0;
+          .res {
+            @include susy-breakpoint (600px) {
+              @include span (6.8 last);
+              padding-right: $pad14;
+              padding-left: 0;
+            }
+          }
+          .detail {
+            @include susy-breakpoint (600px) {
+              @include span (3.2);
+            }
+          }
+        }
+      }
+    }
+    footer {
+      @extend .archive;
+      padding: 0 $pad14;
+    }
+  }
+
+  .adv {
+    @include susy-breakpoint (480px) {
+      @include container();
+    }
+    @include susy-breakpoint (800px) {
+      @include span(2 last);
+      padding-right: $pad14;
+    } 
+    .first_ad {
+      margin-bottom: $mar25;
+      @include susy-breakpoint (480px) {
+        @include span(3.33);
+        margin-bottom: 0;
+        padding-left: $pad8;
+      }
+      @include susy-breakpoint (800px) {
+         @include span(10);
+         padding: 0;
+         margin-bottom: $mar25;
+      }
+    }
+    .second_ad {
+      margin-bottom: $mar25;
+      @include susy-breakpoint (480px) {
+        @include span(3.33);
+        margin-bottom: 0;
+        padding: 0 $pad4;
+      }
+      @include susy-breakpoint (800px) {
+        @include span(10);
+        padding: 0;
+        margin-bottom: $mar25;
+     }
+    }
+    .third_ad {
+      @include susy-breakpoint (480px) {
+        @include span(3.33);
+        padding-right: $pad8;
+      }
+      @include susy-breakpoint (800px) {
+        @include span(10);
+        padding: 0;
+     }
+    }
+  }
+}
+
+// video
+.video_box {
+  background-color: black;
+  margin-bottom: $mar25;
+  padding-bottom: 1px;
+  .video {
+    margin-bottom: $mar14;
+    padding-top: $pad14;
+    header {
+      width: 90%;
+      margin: $mar14 auto 32px auto;
+      position: relative;
+      @include borders(bottom,1px, solid, $orange);
+      @include susy-breakpoint (800px) {
+        width: 30%;
+      }
+      .header_inner {
+        right: calc(50% - 50px);
+        display: inline-block;
+        position: absolute;
+        background-color: $black;
+        top: -13px;
+        padding: 0 $pad14;
+
+        h4 {
+          background-color: $orange;
+          padding: 0 $pad14 2px $pad14;
+          border-radius: 4px;
+          font-size: $font9;
+          color: $white;
+        }
+      }
+    }
+    .clip {
+      padding: 0 $pad14;
+      @include container();
+      .right {
+        margin-bottom: $mar14;
+        @include susy-breakpoint (780px){
+          @include span(5);
+          padding-left: $pad8;
+          margin-bottom: 0;
+        }
+       
+        .caption {
+          svg {
+            display: inline-block;
+          }
+          .title {
+            display: inline-block;
+            font-size: 0.93em;
+            a {
+              color: $white;
+            }
+          }
+        }
+      }
+      .left {
+        @include susy-breakpoint (780px){
+          @include span(5 last);
+          padding-right: $pad8;
+        }
+        ul {
+          @include susy-breakpoint (600px) {
+            @include container();
+          }
+          li {
+            position: relative;
+            margin-bottom: $mar14;
+            @include susy-breakpoint (600px) {
+              @include span(5);
+            }
+            svg {
+              position: absolute;
+              top: 40%;
+              right: 40%;
+            }
+            .caption {
+              width: 100%;
+              position: absolute;
+              bottom: 0;
+              background-color: #00000080;
+              padding: $pad8;
+              h4 {
+                font-size: $font9;
+                a {
+                  color: $white;
+                }
+              }
+            }
+          }
+          & li:last-child {
+            margin-bottom: 0;
+          }
+          & li:nth-child(1) ,
+            li:nth-child(3) {
+              @include susy-breakpoint (600px) {
+                padding-left: $pad8;
+              }
+          }
+          & li:nth-child(2) ,
+            li:nth-child(4) {
+              @include susy-breakpoint (600px) {
+                padding-right: $pad8;
+              }
+          }
+          & li:nth-child(3) ,
+            li:nth-child(4) {
+              @include susy-breakpoint (600px) {
+                margin-bottom: 0;
+              }
+          }
+        }
+      }
+    }
+    footer {
+      @extend .archive;
+      padding: 0 $pad14;
+    }
+  }
+}
+
+// report 
+.report {
+  margin-bottom: $mar25;
+  @include susy-breakpoint (600px) {
+    @include container();
+  }
+  .col_right {
+    @include susy-breakpoint (900px) {
+      @include span(7);
+      margin-bottom: 0;
+      padding-left: $pad8;
+    } 
+    .report_inner {
+      @extend .shadow_box;
+      padding: 1px $pad14;
+      margin-bottom: $mar25;
+      .same_header {
+        margin-bottom: $mar8;
+        h4 {
+          background-color: $darkblue;
+        }
+      }
+      ul {
+        margin-top: $mar25;
+        margin-bottom: $mar14;
+        @include container();
+        li {
+          margin-bottom: $mar21;
+          @include container();
+          @include susy-breakpoint (600px) {
+            @include span(5);
+          }
+          .res {
+            @include span(4.5);
+            padding-left: $pad8;
+            img {
+              border-radius: 4px;
+            }
+          }
+          .detail {
+            @extend .overflow_text;
+            @include span(5.5);
+            .up_title {
+              @include susy-breakpoint (560px 899px) {
+                display: -webkit-box;
+                -webkit-line-clamp: 1;
+                -webkit-box-orient: vertical;
+                overflow: hidden;
+                text-overflow: ellipsis;
+              }
+              color: $normalgray;
+              font-size: $font7;
+              margin-bottom: 4px;
+            } 
+            .title {
+              @include susy-breakpoint (560px 899px) {
+                display: -webkit-box;
+                -webkit-line-clamp: 1;
+                -webkit-box-orient: vertical;
+                overflow: hidden;
+                text-overflow: ellipsis;
+              }
+              font-size: $font9;
+              a {
+                color: $black;
+                transition: 0.5s;
+              }
+            }
+          }
+        }
+        & li:last-child {
+          margin-bottom: 0;
+        }
+        & li:nth-child(odd) {
+          @include susy-breakpoint (600px) {
+            padding-left: $pad8;
+          }
+        }
+        & li:nth-child(even) {
+          @include susy-breakpoint (600px) {
+            padding-right: $pad8;
+          } 
+        }
+        & li:nth-child(5){
+          @include susy-breakpoint (600px) {
+            margin-bottom: 0;
+          } 
+        }
+        li:hover {
+          .title {
+            a {
+              color: $orange;
+            }
+          }
+        }
+      }
+      footer {
+        @extend .archive;
+        padding: 0 $pad14;
+      }
+    }
+  }
+  .col_left {
+    @include susy-breakpoint (900px) {
+      @include span(3 last);
+      padding-right: $pad8;
+    }
+    .note {
+      padding: 1px $pad14;
+      @extend .shadow_box; 
+      .same_header {
+        margin-bottom: $mar8;
+        h4 {
+          background-color: $darkblue;
+        }
+      }
+      ul {
+        margin-top: $mar25;
+        li {
+          margin-bottom: 18px;
+          @include container();
+          .res {
+            @include span(2.7);
+          }
+          img {
+            border-radius: 50%;
+            @include borders(left,3px, solid, $orange);
+            @include borders(right,3px, solid, $orange);
+            @include borders(top,3px, solid, $orange);
+            @include borders(bottom,3px, solid, $orange);
+          }
+          .detail {
+            @include span(7.3);
+            @extend .overflow_text;
+            padding-right: $pad8;
+            margin-top: 14px;
+            @include susy-breakpoint (600px 899px) {
+              display: -webkit-box;
+              -webkit-line-clamp: 1;
+              -webkit-box-orient: vertical;
+              overflow: hidden;
+              text-overflow: ellipsis;
+              margin-top: 50px;
+            }
+            .title {
+              font-size: $font9;
+              a {
+                color: $black;
+                transition: 0.5s;
+              }
+            }
+          }
+        }
+        & li:last-child {
+          margin-bottom: 0;
+        }
+        li:hover {
+          .title {
+            a {
+              color: $orange;
+            }
+          }
+        }
+      }
+      footer {
+        @extend .archive;
+      }
+    } 
+  }
+}
+
+// report_pic
+.image_report {
+  background-color: #9c8656;
+  margin-bottom: $mar25;
+  padding-bottom: 1px;
+  .image_report_inner {
+    padding-top: 1px;
+    margin-bottom: $mar14;
+    .same_header {
+      margin-bottom: $mar14;
+      h4 {
+        background-color: $darkblue;
+      }
+    }
+    .image_report_top ,
+    .image_report_bottom {
+      li {
+        margin-bottom: $mar14;
+        @include container();
+        @include susy-breakpoint (600px) {
+          @include span(5);
+          margin-bottom: 0;
+          padding-left: $pad8;
+        }
+        .res {
+          margin-bottom: $mar14;
+        }
+        .detail {
+          .up_title {
+            color: #555;
+            font-size: $font8;
+            margin-bottom: $mar14;
+          }
+          .title {
+            font-size: $font10;
+            margin-bottom: $mar14;
+            font-family: $myBoldFont;
+            a {
+              transition: 0.5s;
+            }
+          }
+          .lead {
+            font-size: $font8;
+            color: $lightBlack;
+            @extend .overflow_text;
+          }
+        }
+      }  
+    }
+    .image_report_top { 
+      margin-top: $mar25;
+      @include container();
+      & li:first-child {
+        @include susy-breakpoint (900px) {
+          @include span(3.67);
+          padding-left: $pad4;
+        }
+         .title {
+          a {
+            color: $black;
+          }
+        }
+      }
+      & li:last-child{
+        @include susy-breakpoint (600px) {
+          margin-bottom: $mar14;
+          padding-left: 0;
+          padding-right: $pad8;
+        }
+        @include susy-breakpoint (900px) {
+          @include span(6.33 last);
+          margin-bottom: 0;
+        }
+        .res { 
+          @include susy-breakpoint (900px) {
+            @include span(6);
+            margin-bottom: 0;
+            padding-left: 11px;
+          }
+        }
+        .detail {
+          @include susy-breakpoint (900px) {
+            @include span(4);
+          }
+          .up_title {
+            color: #555;
+            font-size: $font8;
+            margin-bottom: $mar14;
+          }
+          .title {
+            a {
+              color: $darkblue;
+            }
+          }
+        }
+      }
+    }
+    .image_report_bottom {
+      margin-top: $mar25;
+      @include container();
+      & li:first-child {
+        @include susy-breakpoint (900px) {
+          @include span(6.33);
+          margin-bottom: 0;
+          padding-left: 12px;
+          padding-right: 8px;
+        }
+        .res {
+           @include susy-breakpoint (900px) {
+            @include span(6 last);
+            margin-bottom: 0;
+            padding-right: $pad8;
+          }
+        }
+        .detail {
+          @include susy-breakpoint (900px) {
+            @include span(4);
+          }
+          .title {
+            a {
+              color: $darkblue;
+            }
+          }
+        }
+      }
+      & li:last-child {
+        margin-bottom: 0;
+        @include susy-breakpoint (600px) {
+          padding-left: 0;
+          padding-right: $pad8;
+        }
+        @include susy-breakpoint (900px) {
+          @include span(3.67 last);
+          padding-right: 0;
+        }
+        .title {
+          a {
+            color: $black;
+          }
+        }
+      }
+    }
+    .image_report_top ,
+    .image_report_bottom {
+      li:hover {
+        .detail {
+          .title {
+            a {
+              color: $red;
+            }
+          }
+        }
+      }
+    }
+    footer {
+      @extend .archive; 
+      a {
+        color: $darkblue;
+      }
+    }
+  }
+}
+
+// more
+.foot_note {
+  background-image: linear-gradient(to right, #085093, #001c37);
+  margin-bottom: $mar25;
+  padding-bottom: 1px;
+  .foot_note_inner {
+    margin-bottom: $mar14;
+    padding: 1px 14px;
+    .same_header {
+      margin-bottom: $mar14;
+      h4 {
+        background-color: $black;
+      }
+    }
+    .first_level {
+      .content {
+        margin-top: $mar25;
+        .res {
+          margin-bottom: $mar14; 
+        }
+        .title {
+          font-size: $font10;
+          a {
+            color: $white;
+          }
+        }
+      }
+    }
+    .lSAction {
+      position: relative;
+      .lSNext {
+        opacity: 0.5;
+        background-image: none;
+        svg {
+          position: absolute;
+          bottom: 430%;
+          right: -48%;
+        }
+      }
+      .lSPrev {
+        opacity: 0.5;
+        background-image: none;
+        svg {
+          position: absolute;
+          left: -48%;
+          bottom: 430%;
+        }
+      }
+    }
+  }
+}
+
+// text_adv
+.text_adv {
+  @extend .shadow_box;
+  padding: 1px 14px;
+  margin-bottom: $mar25;
+  @include susy-breakpoint (700px) {
+    padding-bottom: 1px;
+  }
+  .same_header {
+    h4 {
+      background-color: $darkblue;
+    }
+  }
+  .content {
+    display: inline-block;
+    margin-top: $mar25;
+    li {
+      display: inline-block;
+      padding-left: 4px;
+      margin-bottom: $mar14;
+      a {
+        color: $black;
+        border: 3px dashed $red;
+        padding: 0 6px;
+        border-radius: 4px;
+      }
+    }
+  }
+}
+
+// footer
+// top_footer
+.top_footer {
+  background-color: $orange;
+  text-align: center;
+  li {
+    display: inline-block; 
+    padding: 2px $pad8;
+    a { 
+      color: $white; 
+      font-size: $font9;
+    }
+  }
+}
+
+// middle_footer
+.middle_footer {
+  background-color: #1d1f27;
+  padding-top: 25px;
+  @include susy-breakpoint (800px) {
+    padding-bottom: 1px;
+  }
+  .middle_footer_inner {
+    padding-bottom: 1px;
+    @include susy-breakpoint (800px) {
+      @include container();
+      margin-bottom: $mar14;
+    }
+    .col_right , .col_left {
+      @include susy-breakpoint (600px) {
+       @include container();
+       margin-bottom: $mar14;
+     }
+     @include susy-breakpoint (800px) {
+       @include span(5);
+       margin-bottom: 0;
+     }
+      .visited {
+        margin-bottom: $mar25;
+       @include susy-breakpoint (600px) {
+         @include span(5);
+         padding-left: $pad14;
+         margin-bottom: 0;        }
+        h4 {
+          font-size: $font9;
+          color: $white;
+          margin-bottom: $mar14;
+        }
+        ul {
+          li {
+            @include borders(bottom, 3px, dotted, #555);
+            margin-bottom: 10px;
+            padding-bottom: 10px;
+            a {
+              display: -webkit-box;
+              -webkit-line-clamp: 1;
+              -webkit-box-orient: vertical;
+              overflow: hidden;
+              text-overflow: ellipsis;
+              color: $white;
+              font-size: $font8;
+            }
+          }
+          & li:last-child {
+            border: none;
+          }
+        }
+      }
+      .hot_subject {
+        margin-bottom: $mar25;
+        @include susy-breakpoint (600px) {
+          @include span(5);
+          padding-left: $pad14;
+          margin-bottom: 0;
+         }
+         h4 {
+           font-size: $font9; 
+           color: $white;
+           margin-bottom: $mar14;
+         }
+         ul {
+           li {
+            @include container();
+             @include borders(bottom, 3px, dotted, #555);
+             margin-bottom: 10px;
+             padding-bottom: 10px;
+             .right_part {
+              @include span(5);
+              a {
+                font-size: $font7;
+              }
+             }
+             .left_part {
+              @include span(5 last);
+              text-align: left;
+              a {
+                font-size: $font7;
+              }
+             }
+             a {
+               color: $white;
+               font-size: $font8;
+             }
+           }
+           & li:last-child {
+             border: none;
+           }
+         }
+      }
+      .latest_news, .qiuck_access {
+        @include susy-breakpoint (600px) {
+          @include span(5 last);
+          padding-right: $pad14;
+        }
+        h4 {
+          font-size: $font9;
+          color: $white;
+          margin-bottom: $mar14;
+        }
+        ul {
+          li {
+            @include borders(bottom, 3px, dotted, #555);
+            margin-bottom: 10px;
+            padding-bottom: 10px;
+            a {
+              display: -webkit-box;
+              -webkit-line-clamp: 1;
+              -webkit-box-orient: vertical;
+              overflow: hidden;
+              text-overflow: ellipsis;
+              color: $white;
+              font-size: $font8;
+            }
+          }
+          & li:last-child {
+            border: none;
+          }
+        }
+      }
+    }
+    .col_right {
+      margin-bottom: $mar25;
+      @include susy-breakpoint (800px) {
+        padding-left: $pad8;
+      }
+    }
+    .col_left {
+      @include susy-breakpoint (800px) {
+        padding-right: $pad8;
+      }
+    }
+  }
+}
+
+// bottom_footer
+.bottom_footer {
+  background-color: #2e3037;
+  padding-bottom: 1px;
+  .bottom_footer_inner {
+    padding: 10px 0;
+    text-align: center;
+    @include susy-breakpoint (600px) {
+      text-align: unset;
+    }
+    @include susy-breakpoint (800px) {
+      @include container();
+    }
+    .social_copy {
+      margin-bottom: $mar14;
+      @include susy-breakpoint (600px) {
+        @include container();
+      }
+      @include susy-breakpoint (800px) {
+        @include span(6.66);
+        padding-left: $pad8;
+        margin-bottom: 0;
+      }
+      .social_media {
+        margin-bottom: $mar14;
+        @include susy-breakpoint (600px) {
+          @include span(5);
+          padding-left: $pad8;
+          margin-bottom: 0;
+        }
+        li {
+          padding: 0 5px;
+          display: inline-block;
+        }
+      }
+      .copy_right {
+        @include susy-breakpoint (600px) {
+          @include span(5 last);
+          padding-right: $pad8;
+        }
+        p {
+          color: $white;
+          display: inline-block;
+          font-size: $font8;
+        }
+        a {
+          color: $white;
+        }
+      }
+    }
+    .logo_aasaam {
+      text-align: center;
+      @include susy-breakpoint (800px) {
+        @include span(3.33 last);
+        padding-right: $pad8; 
+      }
+      a {
+        display: inline-block;
+        img {
+          display: block;                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                
+          height: auto;
+          transition: 0.8s;
+        }
+      } 
+      span {
+        color: $white;
+        font-size: $font8;
+        vertical-align: 1.2em;
+      }
+    }
+  }
+}

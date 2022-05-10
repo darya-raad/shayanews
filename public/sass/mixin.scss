@@ -1,0 +1,3 @@
+@mixin borders($direction, $size, $type , $color) {
+  border-#{$direction} : $size   $type  $color;
+}
